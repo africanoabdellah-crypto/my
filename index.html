@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdellah Bentaouit | Desarrollador de Software & Web</title>
+  <meta name="description" content="Portfolio profesional de Abdellah Bentaouit - Desarrollador de Aplicaciones Multiplataforma (DAM), Desarrollador Web y Creador Audiovisual." />
+  
+  <!-- Google Fonts & Lucide Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Interactive Cyber Constellation Canvas (Fondo interactivo de estrellas conectadas que reacciona al ratón por detrás sin tapar el texto) -->
+  <canvas id="bgStarCanvas"></canvas>
+
+  <!-- Background Decorative Glows -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <!-- HEADER / NAVIGATION -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-content">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>AB<span class="logo-accent">.</span><span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#about" class="nav-link" data-i18n="nav_about">Sobre mí</a>
+        <a href="#skills" class="nav-link" data-i18n="nav_skills">Habilidades</a>
+        <a href="#experience" class="nav-link" data-i18n="nav_exp">Experiencia</a>
+        <a href="#education" class="nav-link" data-i18n="nav_edu">Formación</a>
+        <a href="#projects" class="nav-link" data-i18n="nav_projects">Proyectos</a>
+        <a href="#contact" class="nav-link" data-i18n="nav_contact">Contacto</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Language Switcher -->
+        <div class="lang-switch">
+          <button class="lang-btn active" id="btnEs" onclick="setLanguage('es')">ES</button>
+          <span class="lang-divider">/</span>
+          <button class="lang-btn" id="btnEn" onclick="setLanguage('en')">EN</button>
+        </div>
+
+        <a href="CV-para las practicas.pdf" download="CV_Abdellah_Bentaouit.pdf" class="btn btn-outline nav-cv-btn">
+          <i data-lucide="download"></i>
+          <span data-i18n="cv_download">Descargar CV</span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+          <i data-lucide="menu" id="menuIcon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            <span data-i18n="status_text">Disponible para prácticas y oportunidades laborales</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span data-i18n="hero_hello">Hola, soy</span>
+            <span class="gradient-text">Abdellah Bentaouit</span>
+          </h1>
+
+          <h2 class="hero-subtitle">
+            <span class="typewriter-prefix">&gt; </span>
+            <span id="typewriter" class="typewriter-text"></span>
+            <span class="cursor">|</span>
+          </h2>
+
+          <p class="hero-description" data-i18n="hero_desc">
+            Estudiante de 2º año de <strong>Desarrollo de Aplicaciones Multiplataforma (DAM)</strong> con amplia experiencia en programación de software, desarrollo web y creación de contenido audiovisual profesional.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary">
+              <i data-lucide="mail"></i>
+              <span data-i18n="contact_me">Contáctame</span>
+            </a>
+            <a href="CV-para las practicas.pdf" target="_blank" class="btn btn-secondary">
+              <i data-lucide="file-text"></i>
+              <span data-i18n="view_cv">Ver CV Completo</span>
+            </a>
+          </div>
+
+          <div class="hero-quick-contacts">
+            <a href="mailto:ab.bentaoit@gmail.com" class="quick-link">
+              <i data-lucide="mail"></i> ab.bentaoit@gmail.com
+            </a>
+            <a href="tel:+34614003626" class="quick-link">
+              <i data-lucide="phone"></i> +34 614 003 626
+            </a>
+            <span class="quick-link location">
+              <i data-lucide="map-pin"></i> España / Marruecos
+            </span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <!-- Floating Highlights - fuera del avatar para no tapar la foto -->
+          <div class="floating-badge badge-dam">
+            <i data-lucide="code-2"></i>
+            <div>
+              <strong>Estudiante DAM</strong>
+              <span data-i18n="badge_dam">2º Año en curso</span>
+            </div>
+          </div>
+
+          <div class="floating-badge badge-exp">
+            <i data-lucide="briefcase"></i>
+            <div>
+              <strong>+6 Meses Exp.</strong>
+              <span data-i18n="badge_exp">Synthetic Intelligence Agency</span>
+            </div>
+          </div>
+
+          <div class="avatar-card">
+            <div class="avatar-glow"></div>
+            <div class="avatar-wrapper">
+              <img src="profile.jpeg" alt="Abdellah Bentaouit" class="avatar-img" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="tag_about">Perfil Profesional</span>
+          <h2 class="section-title" data-i18n="title_about">Sobre Mí</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card main-about">
+            <div class="about-quote-icon">
+              <i data-lucide="quote"></i>
+            </div>
+            <p class="about-highlight" data-i18n="about_highlight">
+              "Responsable, creativo y con pasión por resolver problemas mediante tecnología moderna y soluciones visuales de alto impacto."
+            </p>
+            <p class="about-text" data-i18n="about_p1">
+              Soy estudiante de segundo año de <strong>Grado Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)</strong> en el <strong>IES Las Salinas</strong>. Cuento con una sólida formación en fundamentos de ingeniería de software, arquitectura orientada a objetos (POO), diseño y gestión de bases de datos relacionales, así como desarrollo web completo.
+            </p>
+            <p class="about-text" data-i18n="about_p2">
+              Además del desarrollo de código, poseo habilidades destacadas en <strong>fotografía, edición y montaje de vídeo profesional</strong> y creación de contenido digital, lo que me permite aportar una visión integral tanto a nivel técnico como estético y de experiencia de usuario (UI/UX).
+            </p>
+
+            <div class="about-stats">
+              <div class="stat-item">
+                <span class="stat-number">2º</span>
+                <span class="stat-label" data-i18n="stat_course">Año DAM Actual</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label" data-i18n="stat_commitment">Compromiso & Aprendizaje</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">4</span>
+                <span class="stat-label" data-i18n="stat_languages">Idiomas Dominados</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-side">
+            <!-- Languages Card -->
+            <div class="about-card side-card">
+              <div class="card-icon-title">
+                <i data-lucide="languages" class="icon-accent"></i>
+                <h3 data-i18n="title_languages">Idiomas</h3>
+              </div>
+              <div class="languages-list">
+                <div class="language-item">
+                  <div class="lang-info">
+                    <span class="lang-name">Árabe</span>
+                    <span class="lang-level badge-native" data-i18n="lang_native">Nativo</span>
+                  </div>
+                  <div class="progress-bar"><div class="progress-fill" style="width: 100%"></div></div>
+                </div>
+
+                <div class="language-item">
+                  <div class="lang-info">
+                    <span class="lang-name">Español</span>
+                    <span class="lang-level badge-adv" data-i18n="lang_advanced">Avanzado</span>
+                  </div>
+                  <div class="progress-bar"><div class="progress-fill" style="width: 90%"></div></div>
+                </div>
+
+                <div class="language-item">
+                  <div class="lang-info">
+                    <span class="lang-name">Inglés</span>
+                    <span class="lang-level badge-basic" data-i18n="lang_basic">Básico</span>
+                  </div>
+                  <div class="progress-bar"><div class="progress-fill" style="width: 45%"></div></div>
+                </div>
+
+                <div class="language-item">
+                  <div class="lang-info">
+                    <span class="lang-name">Francés</span>
+                    <span class="lang-level badge-basic" data-i18n="lang_basic">Básico</span>
+                  </div>
+                  <div class="progress-bar"><div class="progress-fill" style="width: 45%"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Soft Skills Card -->
+            <div class="about-card side-card">
+              <div class="card-icon-title">
+                <i data-lucide="sparkles" class="icon-accent"></i>
+                <h3 data-i18n="title_soft_skills">Competencias Personales</h3>
+              </div>
+              <div class="soft-skills-tags">
+                <span class="tag"><i data-lucide="brain"></i> <span data-i18n="soft_learning">Capacidad de aprendizaje</span></span>
+                <span class="tag"><i data-lucide="lightbulb"></i> <span data-i18n="soft_creativity">Creatividad</span></span>
+                <span class="tag"><i data-lucide="check-circle-2"></i> <span data-i18n="soft_problem">Resolución de problemas</span></span>
+                <span class="tag"><i data-lucide="users"></i> <span data-i18n="soft_team">Trabajo en equipo</span></span>
+                <span class="tag"><i data-lucide="calendar"></i> <span data-i18n="soft_org">Organización</span></span>
+                <span class="tag"><i data-lucide="eye"></i> <span data-i18n="soft_detail">Atención al detalle</span></span>
+                <span class="tag"><i data-lucide="shuffle"></i> <span data-i18n="soft_adapt">Adaptabilidad</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="section section-alt" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="tag_skills">Conocimientos Técnicos</span>
+          <h2 class="section-title" data-i18n="title_skills">Habilidades & Tecnologías</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Skill Card 1: Software & POO -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon icon-code">
+                <i data-lucide="terminal"></i>
+              </div>
+              <div>
+                <h3 data-i18n="cat_dev_title">Desarrollo de Software & POO</h3>
+                <p data-i18n="cat_dev_sub">Arquitectura, lógica y estructura</p>
+              </div>
+            </div>
+            <ul class="skill-list">
+              <li>
+                <div class="skill-bullet"></div>
+                <div class="skill-meta">
+                  <strong>Programación en Java</strong>
+                  <span data-i18n="skill_java_desc">Estructuras de datos, sintaxis moderna, clases y colecciones</span>
+                </div>
+              </li>
+              <li>
+                <div class="skill-bullet"></div>
+                <div class="skill-meta">
+                  <strong>Programación Orientada a Objetos (POO)</strong>
+                  <span data-i18n="skill_poo_desc">Encapsulamiento, herencia, polimorfismo y abstracción limpia</span>
+                </div>
+              </li>
+              <li>
+                <div class="skill-bullet"></div>
+                <div class="skill-meta">
+                  <strong>Depuración y Resolución de Problemas</strong>
+                  <span data-i18n="skill_debug_desc">Análisis de errores, debugging avanzado y optimización de código</span>
+                </div>
+              </li>
+              <li>
+                <div class="skill-bullet"></div>
+                <div class="skill-meta">
+                  <strong>Diseño y Desarrollo de Aplicaciones</strong>
+                  <span data-i18n="skill_apps_desc">Aplicaciones multiplataforma desktop y mobile (DAM)</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Skill Card 2: Web & Databases -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon icon-web">
+                <i data-lucide="layout"></i>
+              </div>
+              <div>
+                <h3 data-i18n="cat_web_title">Desarrollo Web & Bases de Datos</h3>
+                <p data-i18n="cat_web_sub">Web moderna, interfaces y persistencia</p>
+              </div>
+            </div>
+            <ul class="skill-list">
+              <li>
+                <div class="skill-bullet"></div>
+                <div class="skill-meta">
+                  <strong>HTML5 semántico & CSS3 moderno</strong>
+                  <span data-i18n="skill_html_desc">Diseño web responsivo, layouts Flexbox, Grid y animaciones</span>
+                </div>
+              </li>
+              <li>
+                <div class="skill-bullet"></div>
+                <div class="skill-meta">
+                  <strong>Bases de Datos Relacionales (SQL)</strong>
+                  <span data-i18n="skill_sql_desc">Consultas avanzadas, joins, procedimientos y diseño de esquemas</span>
+                </div>
+              </li>
+              <li>
+                <div class="skill-bullet"></div>
+                <div class="skill-meta">
+                  <strong>Gestión y Modelado de Datos</strong>
+                  <span data-i18n="skill_data_desc">Diagramas ER, normalización e integridad relacional</span>
+                </div>
+              </li>
+              <li>
+                <div class="skill-bullet"></div>
+                <div class="skill-meta">
+                  <strong>Entornos de Desarrollo (IDEs)</strong>
+                  <span data-i18n="skill_ide_desc">VS Code, IntelliJ IDEA, Eclipse, Git y herramientas de control</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Skill Card 3: Audiovisual & Media -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon icon-media">
+                <i data-lucide="video"></i>
+              </div>
+              <div>
+                <h3 data-i18n="cat_media_title">Audiovisual & Creación Digital</h3>
+                <p data-i18n="cat_media_sub">Contenido multimedia, fotografía y vídeo</p>
+              </div>
+            </div>
+            <ul class="skill-list">
+              <li>
+                <div class="skill-bullet"></div>
+                <div class="skill-meta">
+                  <strong>Edición y Montaje de Vídeo</strong>
+                  <span data-i18n="skill_video_desc">Postproducción, ritmo narrativo, transiciones y corrección</span>
+                </div>
+              </li>
+              <li>
+                <div class="skill-bullet"></div>
+                <div class="skill-meta">
+                  <strong>Grabación de Contenido Audiovisual</strong>
+                  <span data-i18n="skill_rec_desc">Manejo de cámaras, iluminación, audio e iluminación técnica</span>
+                </div>
+              </li>
+              <li>
+                <div class="skill-bullet"></div>
+                <div class="skill-meta">
+                  <strong>Fotografía, Composición y Encuadre</strong>
+                  <span data-i18n="skill_photo_desc">Encuadre visual, colorimetría y estética para marcas</span>
+                </div>
+              </li>
+              <li>
+                <div class="skill-bullet"></div>
+                <div class="skill-meta">
+                  <strong>Retoque de Imágenes y Contenido Digital</strong>
+                  <span data-i18n="skill_edit_desc">Edición fotográfica, creación de assets para webs y redes</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="tag_exp">Trayectoria</span>
+          <h2 class="section-title" data-i18n="title_exp">Experiencia Laboral</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="timeline">
+          <!-- Timeline Item 1: Agency -->
+          <div class="timeline-item">
+            <div class="timeline-marker">
+              <i data-lucide="briefcase"></i>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="role-title" data-i18n="exp1_role">Desarrollador Web</h3>
+                  <h4 class="company-title">Synthetic Intelligence Agency</h4>
+                </div>
+                <div class="timeline-meta">
+                  <span class="badge-time"><i data-lucide="clock"></i> <span data-i18n="exp1_duration">6 Meses</span></span>
+                </div>
+              </div>
+              <p class="timeline-description" data-i18n="exp1_desc">
+                Desarrollo y mantenimiento técnico de plataformas y páginas web corporativas. Colaboración activa en proyectos web de la agencia y creación de contenido digital y recursos multimedia de alto impacto.
+              </p>
+              <div class="tech-pills">
+                <span class="pill">Desarrollo Web</span>
+                <span class="pill">Mantenimiento Web</span>
+                <span class="pill">Proyectos Colaborativos</span>
+                <span class="pill">Contenido Digital</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2: Freelance -->
+          <div class="timeline-item">
+            <div class="timeline-marker">
+              <i data-lucide="globe"></i>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="role-title" data-i18n="exp2_role">Desarrollador Web Freelance</h3>
+                  <h4 class="company-title" data-i18n="exp2_company">Proyectos Independientes</h4>
+                </div>
+                <div class="timeline-meta">
+                  <span class="badge-time"><i data-lucide="check-circle-2"></i> <span data-i18n="exp2_status">Freelance</span></span>
+                </div>
+              </div>
+              <p class="timeline-description" data-i18n="exp2_desc">
+                Creación y modificación de páginas web comerciales personalizadas para clientes de sectores locales, incluyendo <strong>restaurantes y barberías</strong>. Diseño a medida, adaptación a dispositivos móviles y actualización continua de contenido web.
+              </p>
+              <div class="tech-pills">
+                <span class="pill">Páginas Web Locales</span>
+                <span class="pill">Restaurantes</span>
+                <span class="pill">Barberías</span>
+                <span class="pill">Diseño Responsivo</span>
+                <span class="pill">SEO Local</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section class="section section-alt" id="education">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="tag_edu">Estudios</span>
+          <h2 class="section-title" data-i18n="title_edu">Formación Académica</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="education-grid">
+          <!-- Edu Card 1: DAM -->
+          <div class="edu-card featured">
+            <div class="edu-badge-tag" data-i18n="edu_dam_tag">En Curso</div>
+            <div class="edu-icon">
+              <i data-lucide="graduation-cap"></i>
+            </div>
+            <div class="edu-period">
+              <i data-lucide="calendar"></i> 2025 – Actualidad
+            </div>
+            <h3 class="edu-title" data-i18n="edu_dam_title">Grado Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)</h3>
+            <p class="edu-institution"><i data-lucide="map-pin"></i> IES Las Salinas (España)</p>
+            <p class="edu-details" data-i18n="edu_dam_details">
+              Formación avanzada en programación orientada a objetos (Java), diseño e implementación de bases de datos relacionales, acceso a datos, interfaces de usuario y desarrollo de software multiplataforma.
+            </p>
+          </div>
+
+          <!-- Edu Card 2: Bachillerato -->
+          <div class="edu-card">
+            <div class="edu-badge-tag" data-i18n="edu_bach_tag">Homologado</div>
+            <div class="edu-icon">
+              <i data-lucide="award"></i>
+            </div>
+            <div class="edu-period">
+              <i data-lucide="calendar"></i> 2023 – 2024
+            </div>
+            <h3 class="edu-title" data-i18n="edu_bach_title">Bachillerato Homologado</h3>
+            <p class="edu-institution"><i data-lucide="map-pin"></i> Marruecos / Homologado en España</p>
+            <p class="edu-details" data-i18n="edu_bach_details">
+              Título oficial de bachillerato homologado con éxito, que otorga la base formativa y el acceso directo al ciclo formativo de grado superior en tecnología.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="tag_proj">Trabajos Realizados</span>
+          <h2 class="section-title" data-i18n="title_proj">Proyectos Destacados</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: Restaurant Web -->
+          <div class="project-card">
+            <div class="project-visual bg-gradient-orange">
+              <div class="project-icon-large">
+                <i data-lucide="utensils"></i>
+              </div>
+              <span class="project-category" data-i18n="proj1_badge">Web Comercial</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title" data-i18n="proj1_title">Web para Restaurantes & Gastronomía</h3>
+              <p class="project-desc" data-i18n="proj1_desc">
+                Diseño y desarrollo de sitios web dinámicos con carta digital interactiva, sistema de contacto directo por WhatsApp, reservas y optimización para visualización móvil fluida.
+              </p>
+              <div class="tech-pills">
+                <span class="pill">HTML5</span>
+                <span class="pill">CSS3 / Flexbox</span>
+                <span class="pill">JavaScript</span>
+                <span class="pill">Carta Digital</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Barber Shop Web -->
+          <div class="project-card">
+            <div class="project-visual bg-gradient-blue">
+              <div class="project-icon-large">
+                <i data-lucide="scissors"></i>
+              </div>
+              <span class="project-category" data-i18n="proj2_badge">Web de Servicios</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title" data-i18n="proj2_title">Sitio Web para Barberías & Salones</h3>
+              <p class="project-desc" data-i18n="proj2_desc">
+                Plataforma web con estética cuidada, catálogo de cortes de cabello, tarifas transparentes, ubicación en Google Maps e integración de citas directas para clientes locales.
+              </p>
+              <div class="tech-pills">
+                <span class="pill">Diseño Moderno</span>
+                <span class="pill">Reserva Online</span>
+                <span class="pill">Responsive</span>
+                <span class="pill">Fotografía</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: DAM Software & DB -->
+          <div class="project-card">
+            <div class="project-visual bg-gradient-purple">
+              <div class="project-icon-large">
+                <i data-lucide="database"></i>
+              </div>
+              <span class="project-category" data-i18n="proj3_badge">Software DAM</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title" data-i18n="proj3_title">Gestión de Datos & Aplicaciones Java</h3>
+              <p class="project-desc" data-i18n="proj3_desc">
+                Proyectos académicos y personales aplicando programación orientada a objetos (POO), patrones limpios de arquitectura y conexión con bases de datos SQL relacionales.
+              </p>
+              <div class="tech-pills">
+                <span class="pill">Java</span>
+                <span class="pill">POO</span>
+                <span class="pill">Bases de Datos SQL</span>
+                <span class="pill">CRUD</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section section-alt" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="tag_contact">Contacto</span>
+          <h2 class="section-title" data-i18n="title_contact">Hablemos de Nuevos Proyectos</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info-cards">
+            <!-- Email -->
+            <a href="mailto:ab.bentaoit@gmail.com" class="contact-card">
+              <div class="contact-icon icon-email">
+                <i data-lucide="mail"></i>
+              </div>
+              <div class="contact-details">
+                <span class="contact-label" data-i18n="contact_label_email">Correo Electrónico</span>
+                <strong class="contact-value">ab.bentaoit@gmail.com</strong>
+                <span class="contact-sub" data-i18n="contact_sub_email">Respuesta rápida</span>
+              </div>
+              <i data-lucide="arrow-up-right" class="arrow-ext"></i>
+            </a>
+
+            <!-- Phone -->
+            <a href="tel:+34614003626" class="contact-card">
+              <div class="contact-icon icon-phone">
+                <i data-lucide="phone"></i>
+              </div>
+              <div class="contact-details">
+                <span class="contact-label" data-i18n="contact_label_phone">Teléfono / WhatsApp</span>
+                <strong class="contact-value">+34 614 003 626</strong>
+                <span class="contact-sub" data-i18n="contact_sub_phone">Llamadas y mensajes</span>
+              </div>
+              <i data-lucide="arrow-up-right" class="arrow-ext"></i>
+            </a>
+
+            <!-- Location -->
+            <div class="contact-card no-link">
+              <div class="contact-icon icon-location">
+                <i data-lucide="map-pin"></i>
+              </div>
+              <div class="contact-details">
+                <span class="contact-label" data-i18n="contact_label_loc">Ubicación</span>
+                <strong class="contact-value">España / Marruecos</strong>
+                <span class="contact-sub" data-i18n="contact_sub_loc">Disponibilidad presencial o remota</span>
+              </div>
+            </div>
+
+            <!-- Download CV card -->
+            <a href="CV-para las practicas.pdf" download="CV_Abdellah_Bentaouit.pdf" class="contact-card cv-highlight-card">
+              <div class="contact-icon icon-download">
+                <i data-lucide="file-down"></i>
+              </div>
+              <div class="contact-details">
+                <span class="contact-label" data-i18n="contact_cv_label">Curriculum Vitae</span>
+                <strong class="contact-value" data-i18n="contact_cv_btn">Descargar Archivo PDF</strong>
+                <span class="contact-sub" data-i18n="contact_cv_sub">Documento oficial para prácticas</span>
+              </div>
+              <i data-lucide="download" class="arrow-ext"></i>
+            </a>
+          </div>
+
+          <!-- Interactive Contact Form -->
+          <div class="contact-form-wrapper">
+            <h3 class="form-title" data-i18n="form_title">Enviar un mensaje directo</h3>
+            <p class="form-subtitle" data-i18n="form_sub">¿Tienes una oferta de prácticas, proyecto freelance o propuesta laboral? Escríbeme directamente.</p>
+            
+            <form id="contactForm" onsubmit="handleFormSubmit(event)">
+              <div class="form-group">
+                <label for="name" data-i18n="form_name">Tu Nombre</label>
+                <div class="input-with-icon">
+                  <i data-lucide="user"></i>
+                  <input type="text" id="name" required placeholder="Ej: Carlos García" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email" data-i18n="form_email">Tu Correo Electrónico</label>
+                <div class="input-with-icon">
+                  <i data-lucide="at-sign"></i>
+                  <input type="email" id="email" required placeholder="tu@empresa.com" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="subject" data-i18n="form_subject">Asunto</label>
+                <div class="input-with-icon">
+                  <i data-lucide="tag"></i>
+                  <input type="text" id="subject" required placeholder="Propuesta de prácticas / Proyecto" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message" data-i18n="form_message">Mensaje</label>
+                <div class="input-with-icon textarea-icon">
+                  <i data-lucide="message-square"></i>
+                  <textarea id="message" rows="4" required placeholder="Cuéntame sobre la oportunidad o proyecto..."></textarea>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">
+                <i data-lucide="send"></i>
+                <span data-i18n="form_submit">Enviar Mensaje</span>
+              </button>
+              
+              <div id="formFeedback" class="form-feedback hidden"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <span class="logo-bracket">&lt;</span><strong>Abdellah Bentaouit</strong><span class="logo-bracket">/&gt;</span>
+        <p class="footer-copy">© 2026 Abdellah Bentaouit. Desarrollador DAM & Web.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#about" data-i18n="nav_about">Sobre mí</a>
+        <a href="#skills" data-i18n="nav_skills">Habilidades</a>
+        <a href="#experience" data-i18n="nav_exp">Experiencia</a>
+        <a href="#education" data-i18n="nav_edu">Formación</a>
+        <a href="#contact" data-i18n="nav_contact">Contacto</a>
+      </div>
+
+      <a href="#hero" class="back-to-top" aria-label="Volver arriba">
+        <i data-lucide="arrow-up"></i>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript Logic -->
+  <script src="main.js"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>
